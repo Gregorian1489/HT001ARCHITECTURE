@@ -1,9 +1,9 @@
 package InMemoryModel;
 
-import Seminar1.ModelElements.PoligonalModel;
-import Seminar1.ModelElements.Scene;
-import Seminar1.ModelElements.Flash;
-import Seminar1.ModelElements.Camera;
+import ModelElements.PoligonalModel;
+import ModelElements.Scene;
+import ModelElements.Flash;
+import ModelElements.Camera;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,10 +24,19 @@ public class ModelStore implements IModelChanger {
         this.Flashes = new ArrayList<>();
         this.Cameras = new ArrayList<>();
 
+        Models.add(new PoligonalModel());
+        Flashes.add(new Flash());
+        Cameras.add(new Camera());
+        Scenes.add(new Scene());
+
     }
 
         public Scene GetScena(int ID) {
-            
+            for (int i = 0; i < Scenes.size(); i++){
+                if(Scenes.get(i).id == id)
+                    return Scenes.get(i);
+            } 
+            return null;
         }
     
         @Override
